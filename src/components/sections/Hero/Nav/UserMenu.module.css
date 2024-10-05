@@ -1,0 +1,26 @@
+.iconAnimation {
+  transition: transform 0.3s ease-in-out;
+}
+
+.iconAnimation:hover {
+  transform: rotate(20deg);
+}
+
+.dropdownContent {
+  background: linear-gradient(to right, #2c3e50, #000);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 8px;
+  color: white;
+}
+
+.dropdownItem {
+  padding: 8px;
+  border-radius: 4px;
+  transition: background 0.2s;
+  color: white;
+}
+
+.dropdownItem:hover {
+  background: #3b3b3b;
+}
