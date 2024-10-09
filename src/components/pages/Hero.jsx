@@ -7,8 +7,6 @@ import IPhonePromotion from '../sections/Hero/HeroHome/Promotion/IPhonePromotion
 function Hero() {
   return (
     <div className='h-[90vh]'>
-      <Header />
-      <Nav />
       <div className='flex gap-[100px] px-[150px] mt-6'>
         <SidebarMenu />
         <IPhonePromotion />

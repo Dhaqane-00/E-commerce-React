@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useCart } from "@/context/CartContext";
 
 function ProductCard({
+  id,
   discount,
   image,
   name,
@@ -11,12 +13,37 @@ function ProductCard({
   reviews,
 }) {
   const [isHovered, setIsHovered] = useState(false);
+  const [showNotification, setShowNotification] = useState(false); // State for notification
+  const [showAddToCart, setShowAddToCart] = useState(false); // State for Add to Cart button
+  const { dispatch } = useCart();
+
+  const handleAddToCart = () => {
+    dispatch({
+      type: "ADD_PRODUCT",
+      payload: {
+        id,
+        name,
+        price: currentPrice,
+        quantity: 1,
+        subtotal: currentPrice,
+        image,
+      },
+    });
+    setShowNotification(true); // Show notification
+    setTimeout(() => setShowNotification(false), 2000); // Hide after 2 seconds
+  };
+
+  const handleCardClick = () => {
+    setShowAddToCart(true);
+    setTimeout(() => setShowAddToCart(false), 1000); // Hide after 3 seconds
+  };
 
   return (
     <motion.article
-      className="relative flex flex-col min-w-[240px] w-[270px]" // added relative here
+      className="relative flex flex-col min-w-[240px] w-[270px]"
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
+      onClick={handleCardClick} // Show Add to Cart on click
     >
       <div className="relative flex overflow-hidden gap-1 items-center justify-center px-3 pt-3 pb-12 max-w-full rounded bg-neutral-100 w-[270px]">
         <div className="absolute top-3 right-3 flex flex-col">
@@ -89,18 +116,24 @@ function ProductCard({
         </div>
       </div>
       <AnimatePresence>
-        {isHovered && (
+        {(isHovered || showAddToCart) && ( // Show button on hover or click
           <motion.button
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}
             transition={{ duration: 0.2 }}
             className="absolute bottom-0 left-0 right-0 z-10 px-7 py-2.5 text-base font-medium text-white bg-black rounded-none max-md:px-5"
+            onClick={handleAddToCart}
           >
             Add To Cart
           </motion.button>
         )}
       </AnimatePresence>
+      {showNotification && (
+        <div className="absolute top-0 left-0 right-0 bg-green-500 text-white text-center py-2 rounded-lg">
+          Added to Cart!
+        </div>
+      )}
     </motion.article>
   );
 }

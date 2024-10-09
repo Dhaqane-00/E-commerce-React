@@ -3,7 +3,7 @@ import { Logo } from "./Logo";
 import { Navigation } from "./Navigation";
 import { SearchBar } from "./SearchBar";
 import { IconGroup } from "./IconGroup";
-import { Menu } from 'lucide-react';
+import { MenuIcon } from "lucide-react";
 
 export function Nav() {
   return (
