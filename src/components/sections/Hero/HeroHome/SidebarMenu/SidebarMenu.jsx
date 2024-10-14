@@ -56,13 +56,13 @@ function SidebarMenu() {
 
   return (
     <motion.nav
-      className="flex gap-10 max-w-[234px]"
+      className="flex flex-col md:flex-row gap-5 md:gap-10 max-w-full md:max-w-[234px] mt-5 md:mt-0"
       initial={{ opacity: 0 }} // Framer Motion initial state
       animate={{ opacity: 1 }} // Framer Motion animate state
       transition={{ duration: 0.5 }} // Framer Motion transition
     >
-      <div className="abs flex gap-6 self-end mt-10">
-        <ul className="flex flex-col items-start text-base text-center text-black ">
+      <div className="flex flex-col md:flex-row gap-6 self-start md:self-end">
+        <ul className="flex flex-col items-start text-base text-center text-black">
           {menuItems.map((item, index) => (
             <MenuItem
               key={index}
@@ -76,7 +76,7 @@ function SidebarMenu() {
         </ul>
       </div>
       <div
-        className="shrink-0 w-px h-96 border border-solid"
+        className="shrink-0 w-px h-96 border border-solid hidden md:block"
         aria-hidden="true"
       />
     </motion.nav>

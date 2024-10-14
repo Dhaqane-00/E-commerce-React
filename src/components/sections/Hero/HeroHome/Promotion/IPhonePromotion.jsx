@@ -27,15 +27,15 @@ function IPhonePromotion() {
   }, []);
 
   return (
-    <section className="overflow-hidden mt-10 pt-4 pl-16 bg-black max-w-[892px] max-md:pl-5">
-      <div className="flex gap-5 max-md:flex-col">
-        <div className="flex flex-col w-[35%] max-md:ml-0 max-md:w-full z-10">
+    <section className="overflow-hidden mt-10 pt-4 pl-4 pr-4 bg-black max-w-full">
+      <div className="flex flex-col md:flex-row gap-5">
+        <div className="flex flex-col w-full md:w-[35%] z-10">
           <PromotionContent />
         </div>
-        <div className="flex flex-col ml-5 w-[65%] max-md:ml-0 max-md:w-full z-0">
+        <div className="flex flex-col w-full md:w-[65%] z-0">
           <motion.div
             ref={carouselRef}
-            className="flex"
+            className="flex" 
             initial={{ x: 0 }}
             animate={{ x: "-300%" }}
             transition={{ duration: 20, repeat: Infinity, ease: "linear" }}

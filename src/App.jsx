@@ -4,6 +4,8 @@ import { Hero, Todays, Features, ThisMounth, Catagories, OurProduct, Footer } fr
 import Header from './components/sections/Hero/Title/Header'
 import { Nav } from './components/sections/Hero/Nav/HeaderNavigations'
 import Cart from './components/pages/Cart'
+import SignUp from './components/pages/SignUp'
+import SignIn from './components/pages/SignIn'
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
           </>
         } />
         <Route path="/Cart" element={ <Cart/>} />
+        <Route path="/SignUp" element={ <SignUp/>} />
+        <Route path="/SignIn" element={ <SignIn/>} />
       </Routes>
      <Footer />
     </main>

@@ -7,18 +7,20 @@ import { MenuIcon } from "lucide-react";
 
 export function Nav() {
   return (
-    <header className="flex flex-wrap gap-10 justify-center items-center p-4 bg-white shadow-sm ">
-      <div className="flex flex-wrap gap-10 items-start self-stretch my-auto text-black min-w-[240px] max-md:max-w-full ">
+    <header className=" flex justify-between items-center py-4 px-10 shadow-sm ">
+      <div className=" flex items-center gap-10">
         <Logo />
-        <div className="ml-[100px]">
-          <Navigation className="hidden sm:flex" />
+        <div className="max-lg:hidden ">
+          <Navigation className="" />
         </div>
       </div>
-      <div className="flex gap-[100px] items-center self-stretch my-auto min-w-[240px] ">
+      <div className=" flex items-center gap-5 max-sm:hidden">
         <SearchBar />
         <IconGroup />
       </div>
-      <Navigation className="w-full mt-4 md:hidden" />
+      <div className="max-lg:block hidden">
+        <MenuIcon />
+      </div>
     </header>
   );
 }
